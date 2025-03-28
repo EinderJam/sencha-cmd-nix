@@ -6,7 +6,7 @@
   outputs = { self, nixpkgs }:
     let system = "x86_64-linux";
     in {
-      defaultPackage.${system} = with import nixpkgs { inherit system; };
+      packages.${system}.default = with import nixpkgs { inherit system; };
         let shortVersion = "7.8.0";
         in let version = "${shortVersion}.59";
         in stdenv.mkDerivation rec {
